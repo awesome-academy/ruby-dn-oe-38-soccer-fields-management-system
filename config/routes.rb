@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :bookings, only: %i(index update)
-      resources :locations, only: :index
+      resources :locations, only: [:index, :edit, :update]
     end
   end
 end

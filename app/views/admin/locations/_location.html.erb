@@ -3,8 +3,8 @@
   <td> <%= location.phone %> </td>
   <td> <%= location.address %> </td>
   <td>
-    <%= button_tag( t("detail.name"), class: "btn btn-primary" )%>
-    <%= button_tag( t("booking.edit"), class: "btn btn-primary" )%>
-    <%= button_tag( t("booking.delete"), class: "btn btn-danger" )%>
+    <%= link_to t("detail.name"),"#", class: "btn btn-primary" %>
+    <%= link_to t("booking.edit"),edit_admin_location_path(location.id), class: "btn btn-primary" %>
+    <%= link_to t("booking.delete"),"#", class: "btn btn-danger" %>
   </td>
 </tr>

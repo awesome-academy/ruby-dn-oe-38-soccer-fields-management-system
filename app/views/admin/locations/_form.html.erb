@@ -1,0 +1,14 @@
+<%= form_for([:admin, @location]) do |l|%>
+  <%= render "shared/error_messages.html.erb", object: l.object %>
+  <%= l.label :name, t("booking.yard_name") %>
+  <%= l.text_field :name, class: "form-control" %>
+  <%= l.label :phone, t("home.phone") %>
+  <%= l.text_field :phone, class: "form-control" %>
+  <%= l.label :address, t("home.address") %>
+  <%= l.text_field :address, class: "form-control" %>
+  <%= l.label :district, t("district.name") %>
+  <%= l.text_field :distric, class: "form-control" %>
+  <%= l.label :description, t("home.description") %>
+  <%= l.text_field:description, class: "form-control" %>
+  <%= l.submit t("home.save"), class: "btn btn-primary" %>
+<% end %>
