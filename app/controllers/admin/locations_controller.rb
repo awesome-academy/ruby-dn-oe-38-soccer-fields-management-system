@@ -38,7 +38,7 @@ class Admin::LocationsController < ApplicationController
 
   def location_params
     params.require(:location)
-          .permit(:name, :phone, :address, :distric, :description)
+          .permit(:name, :phone, :address, :district, :description)
   end
 
   def load_location

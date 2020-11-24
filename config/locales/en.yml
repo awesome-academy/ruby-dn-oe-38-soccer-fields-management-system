@@ -232,7 +232,6 @@ en:
     show:
       warning: "No user found"
 
-
   sessions:
     new:
       news:

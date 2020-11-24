@@ -24,6 +24,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = t "update.success"
+      redirect_to @user
+    else
+      flash[:warning] = t "update.unsuccess"
+      render :edit
+    end
+  end
+
   private
 
   def user_params

@@ -1,3 +1,6 @@
 paginate:
   home: 6
   manage: 5
+email:
+  email: "huynhquocviet020998@gmail.com"
+  password: "viet110213"

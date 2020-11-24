@@ -130,7 +130,6 @@ vi:
         confirmation: "Xác nhận mật khẩu"
         phone: "Số điện thoại"
         createAccount: "Tạo tài khoản"
-
   show:
     about: "Thông tin"
     userid: "User Id"
