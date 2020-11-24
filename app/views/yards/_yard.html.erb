@@ -2,5 +2,5 @@
   <%= button_tag yard.yard.code, type: "button", class: "col-2 btn btn-danger m-2 booked_yard" %>
 <% else %>
   <%= button_tag yard.yard.code, type: "button", class: "col-2 btn btn-primary m-2 booking_yard",
-   data:{id:yard.id, location:yard.yard.location.name, cost:yard.cost, type:yard.yard.type_yard, time: yard.time, code: yard.yard.code} %>
+  data:{id:yard.id, location:yard.yard.location.name, cost:yard.cost, type:yard.yard.type_yard, time: yard.time, code: yard.yard.code} %>
 <% end %>
