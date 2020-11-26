@@ -17,3 +17,5 @@ admin_booking:
 rspec:
   model:
     length_character: 255
+paginate:
+  per_page: 10
