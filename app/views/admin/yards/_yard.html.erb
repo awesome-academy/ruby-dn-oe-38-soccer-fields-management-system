@@ -1,0 +1,9 @@
+<tr>
+  <td> <%= yard.code %> </td>
+  <td> <%= yard.type_yard %> </td>
+  <td>
+    <%= link_to t("detail.name"), admin_time_cost_path(id: yard.id), class: "btn btn-primary" %>
+    <%= link_to t("booking.edit"),edit_admin_yard_path(yard.id), class: "btn btn-primary" %>
+    <%= link_to t("booking.delete"), "#", class: "btn btn-danger" %>
+  </td>
+</tr>
