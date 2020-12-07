@@ -1,5 +1,5 @@
 class User::BookingsController < UserController
-  before_action :check_param_status, :load_booking,
+  before_action :load_booking, :check_param_status,
                 :check_current_user, :check_current_user_booking,
                 :check_status_booking, only: :update
   before_action :check_date_time, only: :create

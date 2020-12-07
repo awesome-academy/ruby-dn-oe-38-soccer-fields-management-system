@@ -188,6 +188,9 @@ en:
       booking_succ_mess: "Thank you for choosing our soccer field!"
       booking_fail_mess: "There was an error in the system, please try again later!"
       booking_logic: "You cannot make a reservation before the current time"
+    cancancan:
+      not_permission: "You do not have permission to access this resource."
+      not_login: "Please login before performing this action."
 
   asession:
     show:
