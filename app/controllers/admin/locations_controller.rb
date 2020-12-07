@@ -1,10 +1,10 @@
-class Admin::LocationsController < ApplicationController
+class Admin::LocationsController < AdminController
   before_action :load_location, only: [:update, :edit]
 
   def index
     @locations = Location.order_by_name
                          .paginate(page: params[:page],
-                            per_page: Settings.paginate.manage)
+                            per_page: Settings.paginate.per_page)
   end
 
   def new
@@ -38,7 +38,7 @@ class Admin::LocationsController < ApplicationController
 
   def location_params
     params.require(:location)
-          .permit(:name, :phone, :address, :distric, :description)
+          .permit(:name, :phone, :address, :district, :description)
   end
 
   def load_location

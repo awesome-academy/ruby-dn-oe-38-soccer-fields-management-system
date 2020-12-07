@@ -32,7 +32,8 @@ gem "will_paginate", "3.1.8"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "factory_bot_rails"
+  gem "database_cleaner"
+  gem "factory_bot_rails", require: false
   gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
@@ -49,7 +50,6 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
-  gem "database_cleaner"
   gem "rails-controller-testing"
   gem "selenium-webdriver"
   gem "simplecov", require: false
