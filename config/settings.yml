@@ -14,3 +14,6 @@ admin_booking:
     accept: "accept"
     rejected: "rejected"
     cancel: "cancel"
+rspec:
+  model:
+    length_character: 255
