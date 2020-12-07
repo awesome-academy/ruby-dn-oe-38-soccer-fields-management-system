@@ -1,5 +1,4 @@
 class User::BookingsController < UserController
-  before_action :logged_in_user, only: %i(seach_yard_for_booking)
   before_action :check_param_status, :load_booking,
                 :check_current_user, :check_current_user_booking,
                 :check_status_booking, only: :update
@@ -45,21 +44,6 @@ class User::BookingsController < UserController
   end
 
   private
-
-  def logged_in_user
-    return if logged_in?
-
-    strore_location_system static_page_path(params[:location_id])
-    respond_to do |format|
-      format.js do
-        render js:
-        "Swal.fire('#{t('message.booking.pls_login')}')
-        .then((value) => {
-          window.location='#{login_path}'
-        })"
-      end
-    end
-  end
 
   def handle_message condition, data
     if condition

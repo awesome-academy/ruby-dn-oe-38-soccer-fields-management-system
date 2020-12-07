@@ -1,6 +1,6 @@
 <div class="widget-area no-padding blank">
   <div class="status-upload">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <%= form_for @comment  do |f| %>
         <%= f.hidden_field :location_id, value: @location.id %>
         <%= f.text_area :content, required: true %>
