@@ -14,32 +14,34 @@ end
 # Create user admin
 User.create!(name: "Thanh Long",
   email:"thanhlongdnit@gmail.com",
-  phone: Faker::PhoneNumber.phone_number,
+  phone: Faker::Number.leading_zero_number(digits: 10),
   password: "123456",
   password_confirmation: "123456",
   role: 1,
-  actived: true,
-  actived_at: Time.zone.now)
+  confirmed_at: Time.zone.now)
+  # actived: true,
+  # actived_at: Time.zone.now
 
 #Create user
 30.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "123456"
-  phone= Faker::PhoneNumber.phone_number
+  phone = Faker::Number.leading_zero_number(digits: 10)
   User.create!(name: name,
   email: email,
   phone: phone,
   password: password,
   password_confirmation: password,
-  actived: true,
-  actived_at: Time.zone.now)
+  confirmed_at: Time.zone.now)
+  # actived: true,
+  # actived_at: Time.zone.now)
 end
 
 #Create Location
 20.times do |n|
   name = Faker::Name.name
-  phone= Faker::PhoneNumber.phone_number
+  phone= Faker::Number.leading_zero_number(digits: 10)
   address = Faker::Address.full_address
   district = ["Hai Chau","Thanh Khe","Lien Chieu","Son Tra","Ngu Hanh Son","Cam Le","Hoa Vang"]
   description = Faker::Lorem.sentence(word_count: 20)

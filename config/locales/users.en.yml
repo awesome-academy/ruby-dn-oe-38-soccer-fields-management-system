@@ -1,0 +1,66 @@
+en:
+  base:
+    title: "Let's order a football field !!!"
+  user:
+    email: "Email"
+    password: "Password"
+    new_password: "New password"
+    re_password: "Re-password"
+    name: "Name"
+    phone: "Phone"
+    remember: "Remember me"
+  title:
+    confirmations: "Resend confirmation instructions"
+    paswords:
+      change: "Change your password"
+      forgot: "Forgot your password?"
+    registrations:
+      edit: "Edit user"
+      register: "Sign up"
+    sessions: "Sign in"
+  submit:
+    confirmations: "Resend confirmation instructions"
+    paswords:
+      change: "Change your password"
+      forgot: "Send me reset password instructions"
+    registrations:
+      edit: "Update"
+      register: "Sign up"
+      back: "Back"
+    sessions: "Sign in"
+  links:
+    login: "Log in"
+    signup: "Sign up"
+    forgot_password: "Forgot your password?"
+    confirmation: "Didn't receive confirmation instructions?"
+    confirmation: "Didn't receive unlock instructions?"
+    omniauthable: "Sign in with"
+  text:
+    minimum_pasword: "kí tự nhỏ nhất"
+    registrations:
+      waiting_confirm: "Currently waiting confirmation for"
+      dont_change: "(leave blank if you don't want to change it)"
+      need_password: "(we need your current password to confirm your changes)"
+  email:
+    confirmation:
+      welcome: "Welcome"
+      content: "You can confirm your account email through the link below:"
+      link: "Confirm my account"
+    email_changed:
+      hello: "Hello"
+      content1: "We're contacting you to notify you that your email is being changed to "
+      content2: "We're contacting you to notify you that your email has been changed to "
+    password_changed:
+      hello: "Hello"
+      content1: "We're contacting you to notify you that your password has been changed. "
+    reset_password:
+      hello: "Hello"
+      content1: "Someone has requested a link to change your password. You can do this through the link below. "
+      content2: "If you didn't request this, please ignore this email. "
+      content3: "Your password won't change until you access the link above and create a new one. "
+      link: "Change my password"
+    unlock:
+      hello: "Hello"
+      content1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      content2: "Click the link below to unlock your account:"
+      link: "Unlock my account"

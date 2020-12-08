@@ -11,7 +11,8 @@ RSpec.describe "Admin::Locations", type: :request do
   # NOT ADMIN RSPEC
   describe "not admin" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      sign_in user
+      # allow_any_instance_of(AdminController).to receive(:current_user).and_return(user)
     end
     before {get "/admin/locations"}
 
@@ -27,7 +28,8 @@ RSpec.describe "Admin::Locations", type: :request do
   #1 - INDEX RSPEC
   describe "GET #index" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      sign_in admin
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
     before {get "/admin/locations"}
 
@@ -47,7 +49,8 @@ RSpec.describe "Admin::Locations", type: :request do
   #2 - NEW RSPEC
   describe "GET #new" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      sign_in admin
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
     before {get "/admin/locations/new"}
 
@@ -67,7 +70,8 @@ RSpec.describe "Admin::Locations", type: :request do
   #3 - EDIT RSPEC
   describe "GET #edit" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      sign_in admin
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
     context "found @location" do
       before {get "/admin/locations/#{location.id}/edit", params:{id: location.id}}
@@ -101,7 +105,8 @@ RSpec.describe "Admin::Locations", type: :request do
   #4 - CREATE RSPEC
   describe "POST #create" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      sign_in admin
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
     context "create location success" do
       before do
@@ -142,7 +147,8 @@ RSpec.describe "Admin::Locations", type: :request do
   #5 - UPDATE RSPEC
   describe "PATCH #update" do
     before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      sign_in admin
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     end
     context "update location success" do
       before do

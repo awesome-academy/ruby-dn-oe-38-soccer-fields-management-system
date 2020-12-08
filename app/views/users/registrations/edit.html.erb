@@ -1,0 +1,58 @@
+<% provide(:title, t("title.registrations.edit")) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="col-6">
+  <h2 class="text-center text-primary text-uppercase"><%= t "title.registrations.edit" %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field mt-3">
+      <%= f.label :email, t("user.email") %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div><%= t "text.registrations.waiting_confirm" %> <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field mt-3">
+      <%= f.label :name, t("user.name") %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :phone, t("user.phone") %><br />
+      <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :password, t("user.new_password") %> <i><%= t "text.registrations.dont_change" %></i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> <%= t("text.minimum_password")%></em>
+      <% end %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :password_confirmation, t("user.re_password") %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :current_password, t("user.password") %> <i><%= t "text.registrations.need_password" %></i><br/>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions mt-3">
+      <%= f.submit t("submit.registrations.edit"), class: "btn btn-success" %>
+    </div>
+  <% end %>
+
+  <div class="back mt-3">
+    <i class="fa fa-chevron-left"></i>
+    <%= link_to t("submit.registrations.back"), :back, class: "text-dark"%>
+  </div>
+
+</div>
+<%= render "users/shared/logo"%>

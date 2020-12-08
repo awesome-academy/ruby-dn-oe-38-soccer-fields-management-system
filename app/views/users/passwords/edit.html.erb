@@ -1,0 +1,30 @@
+<% provide(:title, t("title.paswords.change")) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="col-6">
+  <h2 class="text-center text-primary text-uppercase"><%= t "title.paswords.change" %></h2>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field mt-3">
+      <%= f.label :password, t("user.new_password") %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> <%= t "text.minimum_password" %>)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field mt-3">
+      <%= f.label :password_confirmation, t("user.re_password") %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions mt-3">
+      <%= f.submit t("submit.paswords.change"), class: "btn btn-success" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+
+</div>
+<%= render "users/shared/logo"%>

@@ -1,5 +1,5 @@
 <div class="col-lg-3">
-  <% if logged_in? && current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <h1 class="my-4"><%= t "menu_manager.title" %> </h1>
     <div class="list-group">
       <%= link_to t("menu_manager.booking_field"), admin_bookings_path, class:"list-group-item" %>

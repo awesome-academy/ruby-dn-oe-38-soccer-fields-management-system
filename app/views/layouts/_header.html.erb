@@ -10,7 +10,7 @@
         <li class="nav-item active">
           <%= link_to t("home.name"), home_path, class: "nav-link" %>
         </li>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
            <li class="nav-item">
             <%= link_to t("booking.name"), user_bookings_path,:class => "nav-link" %>
           </li>
@@ -20,15 +20,14 @@
               <b class="caret"></b>
             <% end %>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <%= link_to t("home.profile"), current_user, class: "dropdown-item" %>
-              <%= link_to t("home.setting"), edit_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to t("home.logout"), logout_path,method: :delete, class: "dropdown-item" %>
+              <%= link_to t("home.profile"), edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to t("home.logout"), logout_path, class: "dropdown-item" %>
             </div>
           </div>
           <% else %>
             <li><%= link_to t("home.login"), login_path, class: "nav-link" %></li>
           <% end %>
-        </div>
+      </ul>
     </div>
   </div>
 </nav>
