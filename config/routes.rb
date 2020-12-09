@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :bookings, only: %i(index update)
       resources :locations, except: %i(delete show)
+      resources :yards
     end
 
     namespace :user do

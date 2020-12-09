@@ -181,7 +181,7 @@ vi:
   message:
     pls_login: "Bạn phải đăng nhập mới sử dụng được hệ thống"
     is_admin: "Bạn không phải là admin nên không dùng được chức năng này"
-    update_location: "Địa điểm đã được cập nhật."
+    update_location: "cập nhật thành công."
     update_fail: "Cập nhật thất bại"
     fail: "Không thể thực hiện yêu cầu, thử lại"
     comment: "Cảm ơn, bình luận của bạn"

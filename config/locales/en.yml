@@ -165,7 +165,7 @@ en:
   message:
     pls_login: "You must be logged in to use the system."
     is_admin: "You are not an admin so you cannot use this function."
-    update_location: "locations was updated."
+    update_location: "Updated success."
     update_fail: "Update fail"
     fail: "Unable to execute request, try again"
     comment: "Thank, your comment"

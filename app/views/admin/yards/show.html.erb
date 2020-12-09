@@ -1,0 +1,23 @@
+<% provide(:title, t("detail.name")) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="col-lg-9">
+  <div class="card card-total">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= link_to t("booking.new"), new_admin_yard_path, class: "btn btn-success"%>
+      </h5>
+    </div>
+  </div>
+  <table class="table border-bodered table-manager">
+    <thead>
+      <tr>
+        <th scope="col"> Ma San</th>
+        <th scope="col"> Loai </th>
+        <th scope="col"> <%= t "home.option" %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @yard %>
+    </tbody>
+  </table>
+</div>
