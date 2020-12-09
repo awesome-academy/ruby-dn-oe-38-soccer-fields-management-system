@@ -204,6 +204,9 @@ vi:
       booking_succ_mess: "Cảm ơn bạn đã tin tưởng và lựa chọn sân bóng của chúng tôi!"
       booking_fail_mess: "Hệ thống đã xảy ra lỗi vui lòng thử lại sau!"
       booking_logic: "Bạn không thể đặt chỗ  trước thời gian hiện tại"
+    cancancan:
+      not_permission: "Bạn không có quyền truy cập tài nguyên này."
+      not_login: "Vui lòng đăng nhập trước khi thực hiện hành động này."
 
   asession:
     show:

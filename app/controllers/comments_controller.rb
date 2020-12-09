@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  authorize_resource
   before_action :find_location, only: :create
 
   def create
