@@ -3,7 +3,7 @@
     <h1 class="my-4"><%= t "menu_manager.title" %> </h1>
     <div class="list-group">
       <%= link_to t("menu_manager.booking_field"), admin_bookings_path, class:"list-group-item" %>
-      <%= link_to t("menu_manager.user"), "#", class:"list-group-item" %>
+      <%= link_to t("menu_manager.user"), admin_users_path, class:"list-group-item" %>
       <%= link_to t("menu_manager.revenue"), "#", class:"list-group-item" %>
       <%= link_to t("menu_manager.field"), admin_locations_path, class:"list-group-item" %>
     </div>

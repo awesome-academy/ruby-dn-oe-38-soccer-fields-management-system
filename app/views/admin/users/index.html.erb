@@ -1,0 +1,47 @@
+<% provide(:title, t("menu_manager.booking_field")) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="col-lg-9">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          <%= t "show.name" %>
+        </th>
+        <th scope="col">
+          <%= t "show.emali" %>
+        </th>
+        <th scope="col">
+          <%= t "show.phone" %>
+        </th>
+        <th scope="col">
+          <%= t "show.role" %>
+        </th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td ><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td><%= user.role %></td>
+          <td>
+            <% if user.user? %>
+              <% if user.locked_at.blank? %>
+                <%= button_tag t("users.lock"), type: "button", class: "btn btn-danger banner-account", data: {id: "#{user.id}", type: "lock"} %>
+              <% else %>
+                <%= button_tag t("users.unlock"), type: "button", class: "btn btn-success banner-account", data: {id: "#{user.id}", type: "unlock"} %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!-- Title -->
+  <div class="d-flex justify-content-center">
+    <%= will_paginate @users %>
+  </div>
+</div>
+<%= javascript_pack_tag "handle_banner", "data-turbolinks-track": "reload" %>

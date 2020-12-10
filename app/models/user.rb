@@ -1,16 +1,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, , :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :lockable
 
   has_many :bookings, dependent: :destroy
   has_many :comments, dependent: :destroy
   enum role: {user: 0, admin: 1}
 
   # has_secure_password
-  has_one_attached :image
+  # has_one_attached :image
 
   before_save :downcase_email
 
@@ -33,35 +33,36 @@ class User < ApplicationRecord
   validates :phone, presence: true,
             format: {with: VALID_PHONE_REGEX}
 
-  validate :acceptable_image_type?
+  scope :order_by_name, ->{order :name}
+  # validate :acceptable_image_type?
 
-  validate :acceptable_image_size?
+  # validate :acceptable_image_size?
 
-  def acceptable_image_type?
-    return unless image.attached?
+  # def acceptable_image_type?
+  #   return unless image.attached?
 
-    return if image.content_type.in? Settings.model.user.content_type
+  #   return if image.content_type.in? Settings.model.user.content_type
 
-    errors.add :image
-    flash[:warning] = t "user_model.error_type"
-  end
+  #   errors.add :image
+  #   flash[:warning] = t "user_model.error_type"
+  # end
 
-  def acceptable_image_size?
-    return unless image.attached?
+  # def acceptable_image_size?
+  #   return unless image.attached?
 
-    return unless image.byte_size > Settings.model.user.image_size.megabyte
+  #   return unless image.byte_size > Settings.model.user.image_size.megabyte
 
-    errors.add :image
-    flash[:warning] = t "user_model.error_size"
-  end
+  #   errors.add :image
+  #   flash[:warning] = t "user_model.error_size"
+  # end
 
-  def displayed_image
-    if image.attached?
-      image
-    else
-      Settings.model.user.display_image
-    end
-  end
+  # def displayed_image
+  #   if image.attached?
+  #     image
+  #   else
+  #     Settings.model.user.display_image
+  #   end
+  # end
 
   def send_notify_booking_to_user_email booking
     UserMailer.booking_to_user(self, booking).deliver_now

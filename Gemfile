@@ -31,6 +31,7 @@ gem "therubyracer"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "will_paginate", "3.1.8"
+gem "will_paginate-bootstrap4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -130,6 +130,8 @@ en:
         confirmation: "Confirm password"
         phone: "Number phone"
         createAccount: "Create account"
+    lock: "Lock"
+    unlock: "Unlock"
 
   shared:
     error_messages:
@@ -142,6 +144,7 @@ en:
     name: "Name"
     email: "Email Address"
     phone: "Phone Number"
+    role: "Role"
     changeima: "Change image"
 
   edit:
