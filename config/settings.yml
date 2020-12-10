@@ -22,3 +22,6 @@ paginate:
 email:
   email: "thanhlongchat@gmail.com"
   password: "0943374694"
+banner:
+  lock: "lock"
+  unlock: "unlock"

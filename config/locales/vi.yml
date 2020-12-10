@@ -130,6 +130,8 @@ vi:
         confirmation: "Xác nhận mật khẩu"
         phone: "Số điện thoại"
         createAccount: "Tạo tài khoản"
+    lock: "Khóa"
+    unlock: "Mở khóa"
 
   show:
     about: "Thông tin"
@@ -137,6 +139,7 @@ vi:
     name: "Tên"
     email: "Địa chỉ Email"
     phone: "Số điện thoại"
+    role: "Quyền"
     changeima: "Thay đổi ảnh"
   edit:
     title: "Chinh Sua"
