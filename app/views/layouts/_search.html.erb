@@ -1,8 +1,6 @@
-<%= form_tag(search_page_path, method: :GET, class: "navbar-form navbar-left") do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: t("base.search"), class: "form-control" %>
-    <div class="input-group-btn">
-      <%= button_tag "", class: "btn btn-info fa fa-search" %>
-    </div>
-  </div>
+<%= search_form_for @q, url: root_path, class: "form-group d-flex mb-0 form-search-yard" do |f| %>
+  <%= f.search_field :location_cont, class: "form-control input-search-yard", placeholder: t("base.search") %>
+  <%= button_tag(type: "submit", class: "btn btn-dark button btn1") do %>
+    <i class="fa fa-search"></i>
+  <% end %>
 <% end %>

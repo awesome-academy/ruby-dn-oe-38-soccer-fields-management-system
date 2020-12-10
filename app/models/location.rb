@@ -2,6 +2,8 @@ class Location < ApplicationRecord
   has_many :yards, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  ransack_alias :location, :name_or_phone_address
+
   scope :order_by_name, ->{order :name}
 
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze

@@ -3,6 +3,7 @@ class User::BookingsController < UserController
                 :check_current_user, :check_current_user_booking,
                 :check_status_booking, only: :update
   before_action :check_date_time, only: :create
+  before_action :check_search_location, only: :index
 
   def seach_yard_for_booking
     yard_arr = Yard.all_yard_by_type(params[:location_id],
@@ -28,7 +29,8 @@ class User::BookingsController < UserController
   end
 
   def index
-    @bookings = current_user.bookings.date_desc.paginate page: params[:page],
+    @booking_user = current_user.bookings.ransack(params[:q])
+    @bookings = @booking_user.result.status_asc.paginate page: params[:page],
       per_page: Settings.admin_booking.per_page
   end
 

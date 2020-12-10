@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :comments, dependent: :destroy
   enum role: {user: 0, admin: 1}
-
+  ransack_alias :user, :name_or_email_or_phone
   # has_secure_password
   # has_one_attached :image
 

@@ -1,20 +1,29 @@
 <% provide(:title, t("menu_manager.booking_field")) %>
 <% provide(:base_title, t("base.title")) %>
 <div class="col-lg-9">
+  <div>
+    <%= search_form_for @u, url: admin_users_path, class: "form-group d-flex mb-2 form-search-user float-right" do |f| %>
+      <%= f.search_field :user_cont, class: "form-control input-search-user mr-2", placeholder: t("base.search-user") %>
+      <%= f.select(:role_eq, options_for_select(User.roles.map {|k, v| [k.humanize.capitalize, v]}, f.object.role_eq), { include_blank: t("search.role") }, {class: "form-control mr-2" }) %>
+      <%= button_tag(type: "submit", class: "btn btn-dark") do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">
-          <%= t "show.name" %>
+          <%= sort_link(@q, :name, t("show.name")) %>
         </th>
         <th scope="col">
-          <%= t "show.emali" %>
+          <%= sort_link(@q, :email, t("show.email")) %>
         </th>
         <th scope="col">
           <%= t "show.phone" %>
         </th>
         <th scope="col">
-          <%= t "show.role" %>
+          <%= sort_link(@q, :role, t("show.role")) %>
         </th>
         <th scope="col"></th>
       </tr>

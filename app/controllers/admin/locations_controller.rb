@@ -1,8 +1,10 @@
 class Admin::LocationsController < AdminController
   before_action :load_location, only: [:update, :edit]
+  before_action :check_search_location, only: :index
 
   def index
-    @locations = Location.order_by_name
+    @l = Location.ransack(params[:q])
+    @locations = @l.result(distinct: true).order_by_name
                          .paginate(page: params[:page],
                             per_page: Settings.paginate.per_page)
   end
