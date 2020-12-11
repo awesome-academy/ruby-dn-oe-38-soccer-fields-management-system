@@ -12,6 +12,6 @@ namespace :rspec do
 
   desc "Run rspec of request"
   task request: :environment do
-    sh %(bundle exec rspec spec/request)
+    sh %(bundle exec rspec spec/requests)
   end
 end

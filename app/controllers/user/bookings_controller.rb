@@ -1,8 +1,8 @@
 class User::BookingsController < UserController
   before_action :load_booking, :check_param_status,
-                :check_current_user, :check_current_user_booking,
-                :check_status_booking, only: :update
-  before_action :check_date_time, only: :create
+                :check_current_user, :check_status_booking,
+                only: :update
+  before_action :check_date_time, :check_booking_exist, only: :create
   before_action :check_search_location, only: :index
 
   def seach_yard_for_booking
@@ -18,10 +18,7 @@ class User::BookingsController < UserController
   end
 
   def create
-    booking_param = Hash.new
-    booking_param[:time_cost_id] = params[:id_timecost]
-    booking_param[:booking_date] = params[:date]
-    @booking = current_user.bookings.build booking_param
+    @booking = current_user.bookings.build @booking_param
     respond_to do |format|
       handle_message @booking.save, @data
       format.json{render json: @data.to_json, status: :created}
@@ -40,7 +37,7 @@ class User::BookingsController < UserController
         send_mail_when_update
         format.json{render json: @booking, status: :created}
       else
-        format.json{render status: :unprocessable_entity}
+        format.html{render js: "window.location='#{user_bookings_path}'"}
       end
     end
   end
@@ -112,14 +109,28 @@ class User::BookingsController < UserController
     handle_redirect_and_message t("message.update_booking.check_status_edit")
   end
 
-  def check_current_user_booking
-    return if current_user.bookings.find_by id: params[:id]
-
-    handle_redirect_and_message t("message.update_booking.check_booking_user")
-  end
-
   def handle_redirect_and_message message
     flash[:warning] = message
     redirect_to user_bookings_path
+  end
+
+  def check_booking_exist
+    @booking_param = Hash.new
+    @booking_param[:time_cost_id] = params[:id_timecost]
+    @booking_param[:booking_date] = params[:date]
+    booking = current_user.bookings.find_by @booking_param
+    return unless booking
+
+    return unless booking&.pending? || booking&.accept?
+
+    handle_redirect_by_ajax @data
+  end
+
+  def handle_redirect_by_ajax data
+    data[:title] = t "message.booking.booking_fail"
+    data[:content] = t "message.booking.booking_fail_mess"
+    respond_to do |format|
+      format.json{render json: data.to_json, status: :created}
+    end
   end
 end
