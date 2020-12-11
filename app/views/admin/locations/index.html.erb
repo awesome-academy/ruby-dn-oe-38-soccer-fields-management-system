@@ -1,6 +1,12 @@
 <% provide(:title, t("detail.name")) %>
 <% provide(:base_title, t("base.title")) %>
 <div class="col-lg-9">
+  <%= search_form_for @l, url: admin_locations_path, class: "form-group d-flex mb-2 form-search-user float-right" do |f| %>
+    <%= f.search_field :name_or_address_cont, class: "form-control input-search-user mr-3", placeholder: t("base.search") %>
+    <%= button_tag(type: "submit", class: "btn btn-dark") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
   <div class="card card-total">
     <div class="card-body">
       <h5 class="card-title">

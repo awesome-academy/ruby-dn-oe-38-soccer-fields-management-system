@@ -4,7 +4,8 @@ vi:
     name: "Sân bóng đá"
     location: "Vị trí"
     cancel: "Hủy bỏ"
-    search: "Tìm kiếm sân bóng đá"
+    search: "Tìm kiếm sân bóng đá bằng tên, số điện thoại, địa chỉ"
+    search-user: "Nhập tên, email"
 
   home:
     name: "Trang chủ"
@@ -120,7 +121,9 @@ vi:
     danger: "Vui lòng hãy đăng nhập !"
 
   search:
-    danger: "Dữ liệu nhập trống"
+    danger: "Không có kết quả tìm kiếm"
+    choose_status: "--Chọn trạng thái"
+    role: "--Chọn quyền"
 
   users:
     new:

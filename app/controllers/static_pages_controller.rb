@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
   before_action :load_location, only: :show
+  before_action :check_search_location, only: :index
   def index
-    @locations = Location.order_by_name
-                         .paginate(page: params[:page],
-                            per_page: Settings.paginate.home)
+    @locations = @q.result(distinct: true).paginate(page: params[:page],
+                           per_page: Settings.paginate.home)
   end
 
   def show

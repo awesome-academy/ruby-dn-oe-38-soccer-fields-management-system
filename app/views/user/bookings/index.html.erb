@@ -1,6 +1,12 @@
 <% provide(:title, t("menu_manager.booking_field")) %>
 <% provide(:base_title, t("base.title")) %>
 <div class="col-lg-9">
+  <%= search_form_for @booking_user, url: user_bookings_path, class: "form-group d-flex mb-2 form-search-user float-right" do |f| %>
+    <%= f.select(:status_eq, options_for_select(Booking.statuses.map {|k, v| [k.humanize.capitalize, v]}, f.object.status_eq), { include_blank: t("search.choose_status")}, {class: "form-control mr-2" }) %>
+    <%= button_tag(type: "submit", class: "btn btn-dark") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
   <table class="table">
     <%= render "layouts/title" %>
     <tbody>

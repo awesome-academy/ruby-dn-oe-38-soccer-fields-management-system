@@ -4,7 +4,8 @@ en:
     name: "Football Yard"
     location: "Location"
     cancel: "Cancel"
-    search: "Search Soccer Field"
+    search: "Search Soccer Field by name, phone, address"
+    search-user: "Input name, email, phone"
 
   home:
     name: "Home"
@@ -120,7 +121,9 @@ en:
     danger: "Please login !"
 
   search:
-    danger: "Empty data!"
+    danger: "No search results"
+    choose_status: "--Choose status"
+    role: "--Choose role"
 
   users:
     new:

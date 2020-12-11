@@ -1,9 +1,10 @@
 class Admin::UsersController < AdminController
   before_action :load_user, :check_banner, only: :update
+  before_action :check_search_location, only: :index
 
   def index
-    @users = User.order_by_name
-                         .paginate(page: params[:page],
+    @u = User.ransack(params[:q])
+    @users = @u.result(distinct: true).paginate(page: params[:page],
                             per_page: Settings.paginate.per_page)
   end
 

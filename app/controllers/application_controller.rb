@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :set_search
 
   rescue_from CanCan::AccessDenied do |_exception|
     if user_signed_in?
@@ -19,7 +19,19 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
+  def set_search
+    @q = Location.ransack(params[:q])
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def check_search_location
+    return unless params[:q]
+
+    return if @q.result.present?
+
+    flash[:warning] = t "search.danger"
   end
 end

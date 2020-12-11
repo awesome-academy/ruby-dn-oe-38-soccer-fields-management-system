@@ -1,8 +1,10 @@
 class Admin::BookingsController < AdminController
   before_action :load_booking, :check_status_booking, only: :update
+  before_action :check_search_location, only: :index
 
   def index
-    @bookings = Booking.status_asc.paginate page: params[:page],
+    @b = Booking.includes(:time_cost).ransack(params[:q])
+    @bookings = @b.result(distinct: true).paginate page: params[:page],
       per_page: Settings.admin_booking.per_page
   end
 
