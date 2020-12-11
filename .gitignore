@@ -80,3 +80,4 @@ test/
 .browserslistrc
 config/credentials.yml.enc
 config/database.yml
+config/sidekiq.yml

@@ -9,4 +9,14 @@ namespace :system do
     sh %(rubocop)
     sh %(bundle exec rspec)
   end
+
+  desc "Running sidekiq server"
+  task run_sidekig: :environment do
+    sh %(bundle exec sidekiq --environment development -C config/sidekiq.yml)
+  end
+
+  desc "Running redis server"
+  task run_redis: :environment do
+    sh %(redis-server)
+  end
 end

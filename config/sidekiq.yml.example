@@ -1,0 +1,9 @@
+:concurrency:
+:max_retries:
+staging:
+  :concurrency:
+production:
+  :concurrency:
+:queues:
+  - default
+  - mailers
